@@ -1,2 +1,2 @@
 # AngularNgRx
-NgRx tutorial
+NgRx tutorial modified
