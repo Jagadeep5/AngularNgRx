@@ -1,0 +1,22 @@
+<table class="table table-hover" *ngIf="coins!= 0">
+    <thead>
+        <tr>
+            <td>Coin Name</td>
+            <td>Coin Price</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let coin of coins | async">
+            <td>{{ coin.name }}</td>
+            <td>{{ coin.price }}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<ul>
+    <li *ngFor="let data of sampleData | async">{{data}}</li>
+</ul>
+<ul>
+    <li *ngFor="let data of changeListener | async">{{data}}</li>
+</ul>
+<button (click)="refresh()">refresh</button>
