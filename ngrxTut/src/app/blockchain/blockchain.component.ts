@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { appState } from '../appState';
-import { Blockchain } from './blockchain.model';
+import { IappState } from '../states/appState';
+import { Blockchain } from '../models/blockchain.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as acts from '../actions/blockchain.actions';
 
@@ -12,7 +12,7 @@ import * as acts from '../actions/blockchain.actions';
 })
 export class BlockchainComponent implements OnInit {
   angForm:FormGroup;
-  constructor(private store:Store<appState>, private fb:FormBuilder) {
+  constructor(private store:Store<IappState>, private fb:FormBuilder) {
     this.Createform();
    }
 

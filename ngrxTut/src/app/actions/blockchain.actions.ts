@@ -1,22 +1,21 @@
 import { Action } from '@ngrx/store';
-import { Blockchain } from '../blockchain/blockchain.model';
+import { Blockchain } from '../models/blockchain.model';
 
 
 
 
-export const ADD_COIN = "Add";
+export const ADD_COIN = "[Blockchain] Add";
 export class AddCoinToStore implements Action {
     readonly type = ADD_COIN;
-    pl:Blockchain = {};
-    constructor(private payload:Blockchain){
-        this.pl = payload;
+    constructor(public payload:Blockchain){
     }
 }
 
-export const DEL_COIN = "Del";
+export const DEL_COIN = "[Blockchain] Del";
 export class DeleteCoinInStore implements Action {
     readonly type = DEL_COIN;
-    constructor(private payload:number){}
+    constructor(public payload:string){
+    }
 }
 
 export type Actions = AddCoinToStore | DeleteCoinInStore;

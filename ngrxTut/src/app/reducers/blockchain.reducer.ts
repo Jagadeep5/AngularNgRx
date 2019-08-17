@@ -1,13 +1,15 @@
-import { Blockchain } from '../blockchain/blockchain.model';
-import { Action } from '@ngrx/store';
+
 import * as acts from '../actions/blockchain.actions';
+import { IBlockChainState, initialBlockChainState } from '../states/blockChain.state';
 
-export const ADD_COIN = 'ADD_COIN';
 
-export function addCoinReducer(state: Blockchain[] = [], action:acts.Actions) {
+
+export const BlockChainReducer = (state:IBlockChainState = initialBlockChainState, action:acts.Actions):IBlockChainState => {
   switch (action.type) {
     case acts.ADD_COIN:
-        return [...state, action.pl];
+        return {...state, blockChainStates: state.blockChainStates.concat(action.payload) }
+    case acts.DEL_COIN:
+        return {...state, blockChainStates: state.blockChainStates.filter(x => x.name != action.payload)}
     default:
         return state;
     }
